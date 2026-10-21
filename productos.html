@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Catálogo de productos FARMAVIDA R.S.">
+  <title>Productos | FARMAVIDA R.S.</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body id="top">
+
+  <div class="barra-superior">
+    FARMAVIDA R.S. | Cra. 1i, Sahagún, Córdoba
+  </div>
+
+  <header class="encabezado shadow-sm">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-white py-2">
+        <a class="navbar-brand" href="index.html">
+          <img class="logo" src="img/logo-farmavida.jpeg" alt="Logo FARMAVIDA">
+        </a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuNav">
+          <div class="navbar-nav ms-auto align-items-center gap-2">
+            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link" href="nosotros.html">Nosotros</a>
+            <a class="nav-link active fw-bold" href="productos.html">Productos</a>
+            <a class="nav-link" href="servicios.html">Servicios</a>
+            <a class="nav-link btn btn-primary px-4 text-white" href="contacto.html">Contacto</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    
+    <section class="pagina-cabecera hero-productos">
+      <div class="container text-center">
+        <h1 class="fw-bold">Productos</h1>
+        <p id="promo-text">Consulta categorías, precios y promociones activas</p>
+      </div>
+    </section>
+
+   
+    <section class="seccion">
+      <div class="container">
+
+        
+        <div class="search-box mb-4">
+          <div class="row g-3 align-items-center">
+            <div class="col-md-7">
+              <div class="input-group">
+                <span class="input-group-text bg-white">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input type="text" id="buscador" class="form-control" 
+                       placeholder="Buscar producto..." 
+                       onkeyup="filtrar()">
+              </div>
+            </div>
+            <div class="col-md-5 text-md-end">
+              <button class="btn btn-dark filter-btn active" onclick="filtrarCat('todos', this)">Todos</button>
+              <button class="btn btn-outline-secondary filter-btn" onclick="filtrarCat('medicamento', this)">Medicamentos</button>
+              <button class="btn btn-outline-secondary filter-btn" onclick="filtrarCat('cuidado', this)">Cuidado</button>
+              <button class="btn btn-outline-secondary filter-btn" onclick="filtrarCat('vitamina', this)">Vitaminas</button>
+            </div>
+          </div>
+
+          <div id="alerta-promo" class="alert alert-success mt-3 d-none mb-0">
+            <i class="bi bi-tag-fill"></i> Promoción activa:
+            <strong id="alerta-promo-nombre"></strong>
+            — <a href="productos.html" class="alert-link">Ver todos</a>
+          </div>
+        </div>
+
+        <!-- Lista productos -->
+        <div class="row g-4" id="lista-productos">
+          <div class="col-md-4 product-item" data-nombre="acetaminofen 500mg" data-cat="medicamento">
+            <div class="card product-card h-100">
+              <div class="position-relative">
+                <span class="badge bg-danger badge-promo">-20% OFF</span>
+                <img src="img/acetaminofen.jpeg" alt="Acetaminofén" class="product-card-img">
+              </div>
+              <div class="card-body">
+                <h5 class="fw-bold">Acetaminofén 500mg</h5>
+                <p class="text-success fw-bold">$5.000 <small class="text-muted text-decoration-line-through">$6.500</small></p>
+                <button class="btn btn-primary w-100 btn-rounded" data-bs-toggle="modal" data-bs-target="#modal1">
+                  <i class="bi bi-eye"></i> Ver detalle
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 product-item" data-nombre="shampoo natural aloe vera" data-cat="cuidado">
+            <div class="card product-card h-100">
+              <div class="position-relative">
+                <span class="badge bg-warning text-dark badge-promo">2x1</span>
+                <img src="img/shampoonatu.jpeg" alt="Shampoo" class="product-card-img">
+              </div>
+              <div class="card-body">
+                <h5 class="fw-bold">Shampoo Natural</h5>
+                <p class="text-success fw-bold">$18.000 <small class="text-muted text-decoration-line-through">$24.000</small></p>
+                <button class="btn btn-primary w-100 btn-rounded" data-bs-toggle="modal" data-bs-target="#modal2">
+                  <i class="bi bi-eye"></i> Ver detalle
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 product-item" data-nombre="vitamina c 1000mg" data-cat="vitamina">
+            <div class="card product-card h-100">
+              <div class="position-relative">
+                <span class="badge bg-success badge-promo">NUEVO</span>
+                <img src="img/vitaminac.jpeg" alt="Vitamina C" class="product-card-img">
+              </div>
+              <div class="card-body">
+                <h5 class="fw-bold">Vitamina C</h5>
+                <p class="text-success fw-bold">$25.000 <small class="text-muted text-decoration-line-through">$32.000</small></p>
+                <button class="btn btn-primary w-100 btn-rounded" data-bs-toggle="modal" data-bs-target="#modal3">
+                  <i class="bi bi-eye"></i> Ver detalle
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p id="no-result" class="text-center text-muted mt-5 d-none">No encontramos productos 😕</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modales -->
+  <div class="modal fade" id="modal1" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Acetaminofén 500mg -20%</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-md-6"><img src="img/acetaminofen.jpeg" class="img-fluid rounded"></div>
+            <div class="col-md-6">
+              <p>Analgésico para dolor leve y fiebre. Caja x 10 tabletas.</p>
+              <p class="fs-4 text-success fw-bold">$5.000</p>
+              <a href="https://wa.me/573000000000?text=Quiero%20promo%20Acetaminofén" class="btn btn-success w-100 btn-rounded">Pedir por WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal2" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title">Shampoo Natural 2x1</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body row g-4">
+          <div class="col-md-6"><img src="img/shampoonatu.jpeg" class="img-fluid rounded"></div>
+          <div class="col-md-6"><p>Con aloe vera 400ml para cabello seco.</p><p class="fs-4 text-success fw-bold">$18.000</p><a href="https://wa.me/573000000000?text=Quiero%20promo%20Shampoo" class="btn btn-success w-100 btn-rounded">WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal3" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title">Vitamina C - NUEVO</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body row g-4">
+          <div class="col-md-6"><img src="img/vitaminac.jpeg" class="img-fluid rounded"></div>
+          <div class="col-md-6"><p>Suplemento para sistema inmune x 60 cápsulas.</p><p class="fs-4 text-success fw-bold">$25.000</p><a href="https://wa.me/573000000000" class="btn btn-success w-100 btn-rounded">WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pie"><div class="container text-center">© 2026 FARMAVIDA R.S.</div></footer>
+
+  <div class="social-flotante">
+    <a href="https://wa.me/573000000000" target="_blank" class="social-bola whatsapp"><i class="bi bi-whatsapp"></i></a>
+    <a href="#" class="social-bola facebook"><i class="bi bi-facebook"></i></a>
+    <a href="#" class="social-bola instagram"><i class="bi bi-instagram"></i></a>
+  </div>
+
+  <button id="btnScrollInteligente" class="scroll-inteligente"><i class="bi bi-chevron-down"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    let catActual = 'todos';
+    function filtrar() {
+      const texto = document.getElementById('buscador').value.toLowerCase();
+      const items = document.querySelectorAll('.product-item');
+      let visibles = 0;
+      items.forEach(item => {
+        const matchTexto = item.dataset.nombre.includes(texto);
+        const matchCat = catActual === 'todos' || item.dataset.cat === catActual;
+        if (matchTexto && matchCat) { item.style.display = ''; visibles++; } else { item.style.display = 'none'; }
+      });
+      document.getElementById('no-result').classList.toggle('d-none', visibles > 0);
+    }
+    function filtrarCat(cat, btn) {
+      catActual = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active', 'btn-dark'); b.classList.add('btn-outline-secondary'); });
+      btn.classList.remove('btn-outline-secondary'); btn.classList.add('active', 'btn-dark'); filtrar();
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const promo = new URLSearchParams(window.location.search).get('promo');
+      if (!promo) return;
+      const mapa = {
+        acetaminofen: { term: 'acetaminofen', label: 'Acetaminofén 500mg -20% OFF', modal: 'modal1' },
+        vitaminac: { term: 'vitamina', label: 'Vitamina C 1000mg - NUEVO', modal: 'modal2' },
+        vitamina: { term: 'vitamina', label: 'Vitamina C 1000mg - NUEVO', modal: 'modal3' },
+        shampoo: { term: 'shampoo', label: 'Shampoo Natural Aloe - 2x1', modal: 'modal2' }
+      };
+      const config = mapa[promo];
+      if (!config) return;
+      document.getElementById('buscador').value = config.term;
+      document.getElementById('promo-text').textContent = config.label;
+      document.getElementById('alerta-promo-nombre').textContent = config.label;
+      document.getElementById('alerta-promo').classList.remove('d-none');
+      filtrar();
+      document.querySelectorAll('.product-item').forEach(el => { if (el.style.display !== 'none') el.querySelector('.card').classList.add('highlight'); });
+      setTimeout(() => { const modalEl = document.getElementById(config.modal); if (modalEl) new bootstrap.Modal(modalEl).show(); }, 600);
+    });
+  </script>
+</body>
+</html>
